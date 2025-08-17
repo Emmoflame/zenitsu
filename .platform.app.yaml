@@ -1,0 +1,18 @@
+name: zenitsu-bot
+type: nodejs:18
+
+disk: 1024
+
+hooks:
+  build: |
+    npm install
+  deploy: |
+    echo "Bot deployed"
+
+web:
+  commands:
+    start: npm start
+  locations:
+    "/":
+      root: .
+      index: index.js
