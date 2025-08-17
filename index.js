@@ -2,7 +2,21 @@ import pkg from '@whiskeysockets/baileys'
 import { Boom } from '@hapi/boom'
 import pino from 'pino'
 import qrcode from 'qrcode-terminal' // ⬅️ مكتبة QR المرئي
+import express from 'express';
+import { createServer } from 'http';
 
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Zenitsu Bot is running');
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+// هنا ضع باقي كود البوت (Baileys، ألعاب، إلخ)
 const {
   default: makeWASocket,
   useMultiFileAuthState,
